@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+</head>
+<body ng-app="staff-manager">
+
+    <div>
+    	<nav>
+	    	<div class="section-inner">
+		        <a ui-sref="home" ui-sref-active="active">Home</a>
+		        <a ui-sref="people" ui-sref-active="active">People</a>
+		        <a ui-sref="aboutUs" ui-sref-active="active">About us</a>
+		    </div>
+    	</nav>
+        
+        <ui-view></ui-view>
+    </div>
+    
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+<script src="js/staff-manager.module.js"></script>
+<script src="js/datasource.service.js"></script>
+<!-- <script src="js/main.controller.js"></script> -->
+
+<script src="js/people/people.component.js"></script>
+<script src="js/people/people.controller.js"></script>
+
+<script src="js/about-us/about-us.component.js"></script>
+<script src="js/about-us/about-us.controller.js"></script>
+
+<script src="js/person.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<div class="people-view">
+
+    
+
+    <!-- filter section -->
+    <section class="filter-section">
+    	<div class="section-inner">
+    		<h2>Filters</h2>
+	        <ul>
+	            <li>
+	                <button ng-click="vm.updateFilter('')">All</button>
+	            </li>
+	            <li>
+	                <button ng-click="vm.updateFilter('M')">Male</button>
+	            </li>
+	            <li>
+	                <button ng-click="vm.updateFilter('F')">Female</button>
+	            </li>
+	        </ul>
+    	</div>
+    </section>
+
+    <!--table section-->
+    <section>
+    	<div class="section-inner">
+	        <h2>List of people</h2>
+	        <table>
+	            <thead>
+	            <th></th>
+	            <th class="clickable" ng-class="{'filter-active': vm.orderKey == 'firstName', 'reverse': vm.reverseOrder}" 
+	                ng-click="vm.setOrderParams('firstName')">First Name</th>
+	            <th class="clickable" ng-class="{'filter-active': vm.orderKey == 'lastName', 'reverse': vm.reverseOrder}"
+	                ng-click="vm.setOrderParams('lastName')">Last Name</th>
+	            <th>Position</th>
+	            <th></th>
+	            </thead>
+	            <tbody>
+	            <!-- <tr ng-repeat="person in vm.people | filter : {sex:vm.peopleFilter} | orderBy : vm.orderKey : vm.reverseOrder"> -->
+	            <tr ng-repeat="person in vm.people | orderBy : vm.orderKey : vm.reverseOrder">
+	                <td>{{ $index + 1 }}</td>
+	                <td>{{ person.firstName }}</td>
+	                <td>{{ person.lastName }}</td>
+	                <td>{{ person.position }}</td>
+	                <td>
+	                	<button class="button-edit" ng-click="vm.editPerson( person )"><i class="material-icons md-18">mode_edit</i></button>
+	                	<button class="button-delete" ng-click="vm.deletePerson( person )"><i class="material-icons md-18">delete</i></button>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td></td>
+	                <td><input type="text" ng-model="vm.newPerson.firstName"></td>
+	                <td><input type="text" ng-model="vm.newPerson.lastName"></td>
+	                <td>{{ person.sex }}</td>
+	                <td>
+	                	<button  class="button-add" ng-click="vm.addPerson()"><i class="material-icons">add</i></button>
+	                </td>
+	            	
+	            </tr>
+	            </tbody>
+	        </table>
+	        {{vm.people.length}}
+	    </div>
+    </section>
+
+	<!-- debug -->
+    <div>
+        <pre>
+            {{ vm | json }}
+        </pre>
+    </div>
+
+    <!--modal section-->
+    <section>
+        <div class="modal-dimmer" ng-show="vm.modalVisible"></div>
+        <div class="modal modal-delete" ng-show="vm.deletingPerson">
+            <h2>Are you sure you want to delete this person?</h2>
+            <button ng-click="vm.closeDeletePerson()">Cancel</button>
+            <button ng-click="vm.confirmDeletePerson()">Delete person</button>
+        </div>
+        <div class="modal modal-edit" ng-show="vm.editingPerson">
+            <h2>Editing person</h2>
+            <form>
+                <label>First Name: <input type="text" ng-model="vm.editedPerson.firstName"></label>
+                <label>Last Name: <input type="text" ng-model="vm.editedPerson.lastName"></label>
+                <button ng-click="vm.saveEditPerson()">Save</button>
+                <button ng-click="vm.closeEditPerson()">Cancel</button>
+            </form>
+        </div>
+    </section>
+
+</div>
