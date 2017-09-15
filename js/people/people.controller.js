@@ -1,4 +1,3 @@
-//import { Class } from '@angular/core';
 
 angular.module( 'staff-manager' )
        .controller( 'PeopleController', [ 'dataSourceService', function(dataSourceService) {
@@ -21,15 +20,15 @@ angular.module( 'staff-manager' )
 
     this.peopleFilter = '';
 
+    this.positions = [ '', 'General Manager', 'Concierge', 'Event Planner', 'Chef', 'Front Desk Clerk', 'Housekeeper', 'Porter' ];
+
     this.updateFilter = function( peopleFilter ) {
         this.peopleFilter = peopleFilter;
     }
 
     this.addPerson = function() {
-    	console.log('add');
         this.people.push( this.newPerson );
-
-        //this.newPerson = new Person();
+		this.newPerson = new Person();
     };
     
     this.setOrderParams = function( orderKey ) {

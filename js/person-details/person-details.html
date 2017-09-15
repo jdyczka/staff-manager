@@ -1,0 +1,52 @@
+<div class="person-details-view">
+
+    
+    <section>
+    	<div class="section-inner">
+	        <h2 class="mb-0">Personal details</h2>
+    	</div>
+    </section>
+
+	<hr>
+
+    <section>
+    	<div class="section-inner">
+    		<div class="row">
+    			<div class="col-xs-3">
+    				<img class="profile-pic" ng-src="{{vm.person.sex == 'M' && 'assets/images/man.jpg' || 'assets/images/woman.jpg'}}">
+    			</div>
+    			<div class="col-xs-9">
+    				<h3>{{vm.person.firstName}} {{vm.person.lastName}}</h3>
+    				<table>
+    					<tr>
+    						<td><strong>Position:</strong></td>
+    						<td>{{vm.person.position}}</td>
+    					</tr>
+    					<tr>
+    						<td><strong>Born:</strong></td>
+    						<td>{{vm.person.born | date}}</td>
+    					</tr>
+    					<tr>
+    						<td><strong>Hired:</strong></td>
+    						<td>{{vm.person.hired | date}}</td>
+    					</tr>
+    					<tr>
+    						<td><strong>Salary:</strong></td>
+    						<td>{{vm.person.salary}} zł</td>
+    					</tr>
+    				</table>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+
+    <section>
+    	<div class="section-inner">
+    		<strong>Description</strong>
+    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor, et mollis pede metus eget nisi. Praesent sodales velit quis augue. Cras suscipit, urna at aliquam rhoncus, urna quam viverra nisi, in interdum massa nibh nec erat.</p>
+    	</div>
+    </section>
+
+    <!-- <pre>{{vm | json}}</pre> -->
+
+</div>

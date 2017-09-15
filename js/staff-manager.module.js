@@ -22,7 +22,7 @@
 
 
 
-angular.module( 'staff-manager', ['ui.router'] );
+angular.module( 'staff-manager', ['ui.router', 'ngAnimate'] );
 
 angular.module( 'staff-manager' ).config( function($stateProvider) {
 
@@ -41,6 +41,17 @@ angular.module( 'staff-manager' ).config( function($stateProvider) {
         // controller: 'MainController as mc'
     }
 
+    var personDetailsState = {
+        name: 'personDetails',
+        url: '/people/{personId}',
+        component: 'personDetails',
+        resolve: {
+        	person: function(dataSourceService, $transition$) {
+		    	return dataSourceService.getPerson( parseInt( $transition$.params().personId) );
+		    }
+		}
+    }
+
     var aboutUsState = {
         name: 'aboutUs',
         url: '/about-us',
@@ -48,7 +59,8 @@ angular.module( 'staff-manager' ).config( function($stateProvider) {
     }
 
     $stateProvider.state( homeState );
-    $stateProvider.state( peopleState );  
+    $stateProvider.state( peopleState );
+    $stateProvider.state( personDetailsState );  
     $stateProvider.state( aboutUsState );    
 });
 

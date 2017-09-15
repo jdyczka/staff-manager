@@ -2,3 +2,42 @@
 @import '_reset.scss';
 @import '_common.scss';
 @import '_people.scss';
+@import '_person-details.scss';
+
+// .debug {
+// 	position: fixed;
+// 	top: 60px;
+// 	right: 0;
+// 	background: #333;
+// 	color: #fff;
+// 	height: 100%;
+// 	padding: 20px;
+// }
+
+hr {
+	width: 100%;
+	max-width: 1200px;
+	border-top: 1px solid $grey-dark-dark;
+	margin: 20px auto;
+}
+
+// .slide {
+//   	transition: all 0s ease-in-out;
+
+// 	&.ng-enter {
+// 	  	transform: translate(100%);
+
+// 		&.ng-enter-active {
+// 			transform: translate(0);
+// 		}
+// 	}
+
+// 	&.ng-leave {
+// 	  	transform: translate(-100%);
+
+// 		&.ng-leave-active {
+// 			transform: translate(0);
+// 		}
+// 	}
+// }
+	
